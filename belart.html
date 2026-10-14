@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BELART - TESDA Accredited Assessment & Training Center</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0A192F',
+                            800: '#112240',
+                            700: '#1D3557',
+                        },
+                        royal: {
+                            600: '#2563EB',
+                            500: '#3B82F6',
+                            400: '#60A5FA',
+                        },
+                        ice: {
+                            100: '#F0F6FF',
+                            200: '#E2EEFF',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+        }
+        .transition-all-custom {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 antialiased selection:bg-royal-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo & Brand -->
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="image_4b99b9.jpg" alt="BELART Training and Assessment Inc. Logo" class="w-12 h-12 rounded-full object-contain shadow-md group-hover:scale-105 transition-transform">
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-navy-900">BELART</span>
+                    <span class="block text-[10px] uppercase tracking-wider font-semibold text-slate-500">Training & Assessment Inc.</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600">
+                <a href="#home" class="text-royal-600 font-semibold hover:text-royal-500 transition-colors">Home</a>
+                <a href="#catalog" class="hover:text-royal-600 transition-colors">Courses</a>
+                <a href="#assessment" class="hover:text-royal-600 transition-colors">Assessment</a>
+                <a href="#schedule" class="hover:text-royal-600 transition-colors">Schedule</a>
+                <a href="#about" class="hover:text-royal-600 transition-colors">About</a>
+                <a href="#contact" class="hover:text-royal-600 transition-colors">Contact</a>
+            </nav>
+
+            <!-- CTA Buttons -->
+            <div class="hidden md:flex items-center gap-3">
+                <button onclick="openBookingModal('assessment')" class="px-5 py-2.5 rounded-xl border border-royal-600 text-royal-600 font-semibold hover:bg-ice-100 transition-all-custom text-sm">
+                    Book Assessment
+                </button>
+                <button onclick="openBookingModal('enroll')" class="px-5 py-2.5 rounded-xl bg-royal-600 text-white font-semibold shadow-lg shadow-royal-600/25 hover:bg-royal-500 hover:shadow-royal-500/40 transition-all-custom text-sm">
+                    Enroll Now
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="block py-2 text-royal-600 font-semibold">Home</a>
+            <a href="#catalog" class="block py-2 text-slate-600 font-medium">Courses</a>
+            <a href="#assessment" class="block py-2 text-slate-600 font-medium">Assessment</a>
+            <a href="#schedule" class="block py-2 text-slate-600 font-medium">Schedule</a>
+            <a href="#about" class="block py-2 text-slate-600 font-medium">About</a>
+            <a href="#contact" class="block py-2 text-slate-600 font-medium">Contact</a>
+            <div class="pt-4 flex flex-col gap-2">
+                <button onclick="openBookingModal('assessment')" class="w-full py-2.5 rounded-xl border border-royal-600 text-royal-600 font-semibold text-center">Book Assessment</button>
+                <button onclick="openBookingModal('enroll')" class="w-full py-2.5 rounded-xl bg-royal-600 text-white font-semibold text-center shadow-md">Enroll Now</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden bg-gradient-to-br from-navy-900 via-navy-800 to-royal-700 text-white py-20 lg:py-32">
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-royal-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-royal-400 text-xs sm:text-sm font-semibold tracking-wide">
+                        <i class="fa-solid fa-certificate"></i> TESDA Accredited Assessment & Training Center
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Empowering Skills, <span class="bg-gradient-to-r from-blue-400 to-royal-400 bg-clip-text text-transparent">Shaping Futures</span> with BELART
+                    </h1>
+                    <p class="text-slate-300 text-lg sm:text-xl font-light max-w-2xl mx-auto lg:mx-0">
+                        Gain industry-standard National Certifications (NC II, NC III), master specialized vocational skills, and unlock global career opportunities.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#catalog" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-royal-500 text-white font-bold shadow-lg shadow-royal-500/30 hover:bg-royal-600 hover:scale-[1.02] transition-all-custom text-center flex items-center justify-center gap-2">
+                            <span>Explore Courses</span> <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <button onclick="openBookingModal('assessment')" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold hover:bg-white/20 hover:scale-[1.02] transition-all-custom text-center">
+                            Book Assessment Slot
+                        </button>
+                    </div>
+
+                    <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-white">100%</div>
+                            <div class="text-xs sm:text-sm text-slate-400 font-medium">TESDA Accredited</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-white">NC II - III</div>
+                            <div class="text-xs sm:text-sm text-slate-400 font-medium">National Certification</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-white">Est. 2025</div>
+                            <div class="text-xs sm:text-sm text-slate-400 font-medium">Industry Excellence</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 shadow-2xl relative text-center">
+                        <img src="image_4b99b9.jpg" alt="BELART Seal" class="w-36 h-36 mx-auto mb-4 rounded-full shadow-lg border-2 border-white/20 p-1 bg-white">
+                        <h3 class="text-2xl font-bold text-white">BELART Training & Assessment Inc.</h3>
+                        <p class="text-royal-300 text-xs font-semibold uppercase tracking-widest mt-1">EST. 2025</p>
+                        <p class="text-slate-300 text-sm mt-3">Delivering specialized technical-vocational education for aviation, construction, education, and digital services.</p>
+                        <button onclick="openBookingModal('enroll')" class="w-full mt-6 py-3 rounded-xl bg-white text-navy-900 font-bold hover:bg-ice-100 transition-colors shadow-md">
+                            Get Started Today
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Filter Bar Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
+        <div class="bg-white rounded-3xl shadow-xl border border-slate-100 p-6 sm:p-8">
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                <div class="relative w-full md:w-1/3">
+                    <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input type="text" id="searchInput" oninput="filterCatalog()" placeholder="Search courses or assessments..." class="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal-500 focus:bg-white text-sm transition-all">
+                </div>
+
+                <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                    <button onclick="setSectorFilter('All')" class="sector-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-royal-600 text-white shadow-sm transition-all">All Sectors</button>
+                    <button onclick="setSectorFilter('Aviation')" class="sector-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-ice-200 hover:text-royal-600 transition-all">Aviation</button>
+                    <button onclick="setSectorFilter('Construction')" class="sector-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-ice-200 hover:text-royal-600 transition-all">Construction</button>
+                    <button onclick="setSectorFilter('Education')" class="sector-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-ice-200 hover:text-royal-600 transition-all">Education</button>
+                    <button onclick="setSectorFilter('ICT')" class="sector-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-ice-200 hover:text-royal-600 transition-all">ICT / Digital</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Header -->
+    <section id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+                <span class="text-royal-600 font-bold text-sm tracking-wider uppercase">Comprehensive Programs</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-1">Explore Our Courses</h2>
+                <p class="text-slate-600 mt-2 max-w-xl">Browse our specialized TESDA-accredited training programs and National Certification assessments.</p>
+            </div>
+            <div class="flex items-center bg-slate-200/70 p-1.5 rounded-2xl w-fit">
+                <button id="tabCoursesBtn" onclick="switchView('courses')" class="px-6 py-2.5 rounded-xl font-bold text-sm bg-white text-royal-600 shadow-sm transition-all">
+                    <i class="fa-solid fa-book-open mr-2"></i> Courses Catalog
+                </button>
+                <button id="tabAssessBtn" onclick="switchView('assessments')" class="px-6 py-2.5 rounded-xl font-bold text-sm text-slate-600 hover:text-royal-600 transition-all">
+                    <i class="fa-solid fa-clipboard-check mr-2"></i> Assessment Center
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Grid View -->
+    <div id="coursesView" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div id="coursesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- 1. Airport Ground Support Equipment -->
+            <div class="course-card bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group" data-sector="Aviation" data-title="Airport Ground Support Equipment">
+                <div class="h-48 bg-gradient-to-br from-sky-600 to-blue-800 relative p-6 flex flex-col justify-between">
+                    <div class="flex justify-between items-center">
+                        <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold">Aviation Sector</span>
+                        <span class="px-3 py-1 rounded-full bg-white text-sky-700 text-xs font-bold shadow-sm">Specialized</span>
+                    </div>
+                    <div class="text-white">
+                        <i class="fa-solid fa-plane-arrival text-4xl mb-2 group-hover:scale-110 transition-transform duration-300"></i>
+                        <h3 class="text-xl font-bold">Airport Ground Support Equipment</h3>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <p class="text-slate-600 text-sm">Operate and manage airport ground service equipment, baggage tractors, and apron support machinery safely.</p>
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <div class="flex items-center justify-between text-xs text-slate-500 font-medium">
+                            <span><i class="fa-regular fa-clock text-royal-500 mr-1"></i> 160 Hours</span>
+                            <span class="text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg"><i class="fa-solid fa-user-check mr-1"></i> Open Slots</span>
+                        </div>
+                        <button onclick="openCourseModal('Airport Ground Support Equipment', 'Aviation', '160 Hours', 'Specialized Certificate', 'Comprehensive training on operating ground support machinery, ramp handling, and airport tarmac safety regulations.')" class="w-full py-3 rounded-xl bg-ice-100 text-royal-600 font-bold hover:bg-royal-600 hover:text-white transition-all-custom text-sm">
+                            Enroll / View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Aircraft Cleaning & Disinfection -->
+            <div class="course-card bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group" data-sector="Aviation" data-title="Aircraft Cleaning & Disinfection">
+                <div class="h-48 bg-gradient-to-br from-cyan-600 to-teal-700 relative p-6 flex flex-col justify-between">
+                    <div class="flex justify-between items-center">
+                        <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold">Aviation Sector</span>
+                        <span class="px-3 py-1 rounded-full bg-white text-teal-700 text-xs font-bold shadow-sm">Specialized</span>
+                    </div>
+                    <div class="text-white">
+                        <i class="fa-solid fa-spray-can-sparkles text-4xl mb-2 group-hover:scale-110 transition-transform duration-300"></i>
+                        <h3 class="text-xl font-bold">Aircraft Cleaning & Disinfection</h3>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <p class="text-slate-600 text-sm">Master specialized interior/exterior aircraft sanitization protocols following international aviation standards.</p>
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <div class="flex items-center justify-between text-xs text-slate-500 font-medium">
+                            <span><i class="fa-regular fa-clock text-royal-500 mr-1"></i> 120 Hours</span>
+                            <span class="text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg"><i class="fa-solid fa-user-check mr-1"></i> Open Slots</span>
+                        </div>
+                        <button onclick="openCourseModal('Aircraft Cleaning & Disinfection', 'Aviation', '120 Hours', 'Specialized Certificate', 'Learn strict biosecurity, chemical handling, cabin deep-cleaning, and decontamination procedures required by major airlines.')" class="w-full py-3 rounded-xl bg-ice-100 text-royal-600 font-bold hover:bg-royal-600 hover:text-white transition-all-custom text-sm">
+                            Enroll / View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Aircraft Cabin Services -->
+            <div class="course-card bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group" data-sector="Aviation" data-title="Aircraft Cabin Services">
+                <div class="h-48 bg-gradient-to-br from-indigo-600 to-blue-900 relative p-6 flex flex-col justify-between">
+                    <div class="flex justify-between items-center">
+                        <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold">Aviation Sector</span>
+                        <span class="px-3 py-1 rounded-full bg-white text-indigo-700 text-xs font-bold shadow-sm">Specialized</span>
+                    </div>
+                    <div class="text-white">
+                        <i class="fa-solid fa-plane text-4xl mb-2 group-hover:scale-110 transition-transform duration-300"></i>
+                        <h3 class="text-xl font-bold">Aircraft Cabin Services</h3>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <p class="text-slate-600 text-sm">Gain essential skills in cabin maintenance, in-flight passenger care support, galley preparation, and safety handling.</p>
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <div class="flex items-center justify-between text-xs text-slate-500 font-medium">
+                            <span><i class="fa-regular fa-clock text-royal-500 mr-1"></i> 200 Hours</span>
+                            <span class="text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg"><i class="fa-solid fa-user-check mr-1"></i> Open Slots</span>
+                        </div>
+                        <button onclick="openCourseModal('Aircraft Cabin Services', 'Aviation', '200 Hours', 'Specialized Certificate', 'Covers professional cabin servicing, passenger comfort standards, emergency response protocols, and airline hospitality.')" class="w-full py-3 rounded-xl bg-ice-100 text-royal-600 font-bold hover:bg-royal-600 hover:text-white transition-all-custom text-sm">
+                            Enroll / View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Early Childhood Care & Development NC III -->
+            <div class="course-card bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group" data-sector="Education" data-title="Early Childhood Care & Development NC lll">
+                <div class="h-48 bg-gradient-to-br from-pink-500 to-rose-600 relative p-6 flex flex-col justify-between">
+                    <div class="flex justify-between items-center">
+                        <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold">Education Sector</span>
+                        <span class="px-3 py-1 rounded-full bg-white text-rose-600 text-xs font-bold shadow-sm">NC III</span>
+                    </div>
+                    <div class="text-white">
+                        <i class="fa-solid fa-child-reaching text-4xl mb-2 group-hover:scale-110 transition-transform duration-300"></i>
+                        <h3 class="text-xl font-bold">Early Childhood Care & Development</h3>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <p class="text-slate-600 text-sm">Foster holistic development for infants and toddlers through structured early education and care techniques.</p>
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <div class="flex items-center justify-between text-xs text-slate-500 font-medium">
+                            <span><i class="fa-regular fa-clock text-royal-500 mr-1"></i> 240 Hours</span>
+                            <span class="text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg"><i class="fa-solid fa-user-check mr-1"></i> Open Slots</span>
+                        </div>
+                        <button onclick="openCourseModal('Early Childhood Care & Development NC lll', 'Education', '240 Hours', 'NC III', 'Training in child psychology, early learning activities, nutrition, safety, and physical development for daycare and preschool staff.')" class="w-full py-3 rounded-xl bg-ice-100 text-royal-600 font-bold hover:bg-royal-600 hover:text-white transition-all-custom text-sm">
+                            Enroll / View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Heavy Equipment Forklift NC II -->
+            <div class="course-card bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group" data-sector="Construction" data-title="Heavy Equipment Forklift NC ll">
+                <div class="h-48 bg-gradient-to-br from-amber-500 to-orange-700 relative p-6 flex flex-col justify-between">
+                    <div class="flex justify-between items-center">
+                        <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold">Construction Sector</span>
+                        <span class="px-3 py-1 rounded-full bg-white text-orange-600 text-xs font-bold shadow-sm">NC II</span>
+                    </div>
+                    <div class="text-white">
+                        <i class="fa-solid fa-truck-ramp-box text-4xl mb-2 group-hover:scale-110 transition-transform duration-300"></i>
+                        <h3 class="text-xl font-bold">Heavy Equipment Forklift</h3>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <p class="text-slate-600 text-sm">Learn certified industrial forklift operations, load handling, preventive maintenance, and workplace safety.</p>
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <div class="flex items-center justify-between text-xs text-slate-500 font-medium">
+                            <span><i class="fa-regular fa-clock text-royal-500 mr-1"></i> 156 Hours</span>
+                            <span class="text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg"><i class="fa-solid fa-user-check mr-1"></i> Open Slots</span>
+                        </div>
+                        <button onclick="openCourseModal('Heavy Equipment Forklift NC ll', 'Construction', '156 Hours', 'NC II', 'Hands-on training in forklift inspection, maneuvering, load lifting, warehouse logistics, and site safety compliance.')" class="w-full py-3 rounded-xl bg-ice-100 text-royal-600 font-bold hover:bg-royal-600 hover:text-white transition-all-custom text-sm">
+                            Enroll / View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Scaffolding NC II -->
+            <div class="course-card bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group" data-sector="Construction" data-title="Scaffolding NC ll">
+                <div class="h-48 bg-gradient-to-br from-slate-700 to-slate-900 relative p-6 flex flex-col justify-between">
+                    <div class="flex justify-between items-center">
+                        <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold">Construction Sector</span>
+                        <span class="px-3 py-1 rounded-full bg-white text-slate-800 text-xs font-bold shadow-sm">NC II</span>
+                    </div>
+                    <div class="text-white">
+                        <i class="fa-solid fa-trowel-bricks text-4xl mb-2 group-hover:scale-110 transition-transform duration-300"></i>
+                        <h3 class="text-xl font-bold">Scaffolding Installation</h3>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <p class="text-slate-600 text-sm">Master the erection, inspection, maintenance, and dismantling of supported scaffolding systems.</p>
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <div class="flex items-center justify-between text-xs text-slate-500 font-medium">
+                            <span><i class="fa-regular fa-clock text-royal-500 mr-1"></i> 160 Hours</span>
+                            <span class="text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg"><i class="fa-solid fa-user-check mr-1"></i> Open Slots</span>
+                        </div>
+                        <button onclick="openCourseModal('Scaffolding NC ll', 'Construction', '160 Hours', 'NC II', 'Specialized construction safety training covering tubular, frame, and modular scaffolding assembly according to OSHA and TESDA standard specifications.')" class="w-full py-3 rounded-xl bg-ice-100 text-royal-600 font-bold hover:bg-royal-600 hover:text-white transition-all-custom text-sm">
+                            Enroll / View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Virtual Assistant level lll -->
+            <div class="course-card bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group md:col-span-2 lg:col-span-1" data-sector="ICT" data-title="Virtual Assistant level  lll">
+                <div class="h-48 bg-gradient-to-br from-purple-600 to-indigo-800 relative p-6 flex flex-col justify-between">
+                    <div class="flex justify-between items-center">
+                        <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold">ICT Sector</span>
+                        <span class="px-3 py-1 rounded-full bg-white text-purple-700 text-xs font-bold shadow-sm">Level III</span>
+                    </div>
+                    <div class="text-white">
+                        <i class="fa-solid fa-headset text-4xl mb-2 group-hover:scale-110 transition-transform duration-300"></i>
+                        <h3 class="text-xl font-bold">Virtual Assistant</h3>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <p class="text-slate-600 text-sm">Master executive administrative support, client management, social media, scheduling, and digital tools for remote work.</p>
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <div class="flex items-center justify-between text-xs text-slate-500 font-medium">
+                            <span><i class="fa-regular fa-clock text-royal-500 mr-1"></i> 300 Hours</span>
+                            <span class="text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg"><i class="fa-solid fa-user-check mr-1"></i> Open Slots</span>
+                        </div>
+                        <button onclick="openCourseModal('Virtual Assistant level  lll', 'ICT', '300 Hours', 'Level III', 'Comprehensive training for remote administrative professionals, covering CRM tools, email marketing, calendar management, project management platforms, and client communications.')" class="w-full py-3 rounded-xl bg-ice-100 text-royal-600 font-bold hover:bg-royal-600 hover:text-white transition-all-custom text-sm">
+                            Enroll / View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Assessment Center View (Hidden by default) -->
+    <div id="assessmentsView" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div class="bg-gradient-to-br from-navy-900 to-royal-800 rounded-3xl p-8 lg:p-12 text-white shadow-2xl mb-12">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <div class="space-y-6">
+                    <span class="px-4 py-1.5 rounded-full bg-royal-500/30 text-royal-300 text-xs font-bold uppercase tracking-wider">Competency Assessment</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold">Get Nationally Certified at BELART Assessment Center</h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        Validate your skills with official TESDA National Certification (NC) examinations. Our certified assessors ensure fair, rigorous, and industry-aligned evaluations.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="openBookingModal('assessment')" class="px-8 py-3.5 rounded-xl bg-royal-500 text-white font-bold hover:bg-royal-600 transition-all shadow-lg">
+                            Book Assessment Schedule
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 space-y-4">
+                    <h4 class="text-xl font-bold border-b border-white/10 pb-3"><i class="fa-solid fa-list-check text-royal-400 mr-2"></i> How to Take NC Assessment</h4>
+                    <ul class="space-y-3 text-sm text-slate-200">
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-royal-500 flex items-center justify-center font-bold text-xs shrink-0">1</span>
+                            <span>Choose your qualification and select an assessment date.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-royal-500 flex items-center justify-center font-bold text-xs shrink-0">2</span>
+                            <span>Submit credentials (TOR, work certificate, or training completion).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-royal-500 flex items-center justify-center font-bold text-xs shrink-0">3</span>
+                            <span>Settle assessment fees online or onsite upon confirmation.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-royal-500 flex items-center justify-center font-bold text-xs shrink-0">4</span>
+                            <span>Complete the theoretical exam and hands-on practical demonstration.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-navy-900 mb-6">Upcoming Assessment Dates</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+                <div class="flex justify-between items-center">
+                    <span class="px-3 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-lg">Construction</span>
+                    <span class="text-xs font-semibold text-emerald-600"><i class="fa-solid fa-circle text-[6px] mr-1"></i> Open Slots</span>
+                </div>
+                <h4 class="text-lg font-bold text-navy-900">Heavy Equipment Forklift NC ll</h4>
+                <div class="text-sm text-slate-600 space-y-1">
+                    <p><i class="fa-regular fa-calendar text-royal-500 mr-2"></i> November 12, 2026</p>
+                    <p><i class="fa-regular fa-clock text-royal-500 mr-2"></i> 8:00 AM - 5:00 PM</p>
+                </div>
+                <button onclick="openBookingModal('assessment')" class="w-full py-2.5 rounded-xl bg-royal-600 text-white font-bold hover:bg-royal-500 transition-colors text-sm">
+                    Reserve Assessment Slot
+                </button>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+                <div class="flex justify-between items-center">
+                    <span class="px-3 py-1 bg-rose-50 text-rose-700 text-xs font-bold rounded-lg">Education</span>
+                    <span class="text-xs font-semibold text-emerald-600"><i class="fa-solid fa-circle text-[6px] mr-1"></i> Open Slots</span>
+                </div>
+                <h4 class="text-lg font-bold text-navy-900">ECCD NC lll Assessment</h4>
+                <div class="text-sm text-slate-600 space-y-1">
+                    <p><i class="fa-regular fa-calendar text-royal-500 mr-2"></i> November 18, 2026</p>
+                    <p><i class="fa-regular fa-clock text-royal-500 mr-2"></i> 8:00 AM - 4:00 PM</p>
+                </div>
+                <button onclick="openBookingModal('assessment')" class="w-full py-2.5 rounded-xl bg-royal-600 text-white font-bold hover:bg-royal-500 transition-colors text-sm">
+                    Reserve Assessment Slot
+                </button>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+                <div class="flex justify-between items-center">
+                    <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs font-bold rounded-lg">ICT Sector</span>
+                    <span class="text-xs font-semibold text-emerald-600"><i class="fa-solid fa-circle text-[6px] mr-1"></i> Open Slots</span>
+                </div>
+                <h4 class="text-lg font-bold text-navy-900">Virtual Assistant level lll Assessment</h4>
+                <div class="text-sm text-slate-600 space-y-1">
+                    <p><i class="fa-regular fa-calendar text-royal-500 mr-2"></i> November 25, 2026</p>
+                    <p><i class="fa-regular fa-clock text-royal-500 mr-2"></i> 9:00 AM - 5:00 PM</p>
+                </div>
+                <button onclick="openBookingModal('assessment')" class="w-full py-2.5 rounded-xl bg-royal-600 text-white font-bold hover:bg-royal-500 transition-colors text-sm">
+                    Reserve Assessment Slot
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Schedule & Batches Section -->
+    <section id="schedule" class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-royal-600 font-bold text-sm tracking-wider uppercase">Training Timelines</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-1">Upcoming Batch Schedules</h2>
+                <p class="text-slate-600 mt-2">Secure your slot early for our upcoming morning, evening, and weekend flexible training batches.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-ice-100 rounded-3xl p-8 border border-ice-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-royal-600 text-white flex items-center justify-center font-bold text-lg mb-6 shadow-md shadow-royal-600/30">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-royal-600">Morning Shift</span>
+                        <h3 class="text-xl font-bold text-navy-900 mt-1">Weekday Morning Batch</h3>
+                        <p class="text-slate-600 text-sm mt-3">Mon to Fri (8:00 AM - 12:00 NN)</p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-200 flex items-center justify-between">
+                        <span class="text-xs font-bold text-emerald-600 bg-white px-3 py-1 rounded-full shadow-xs">Enrollment Open</span>
+                        <button onclick="openBookingModal('enroll')" class="text-royal-600 font-bold text-sm hover:underline">Select Batch <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                    </div>
+                </div>
+
+                <div class="bg-ice-100 rounded-3xl p-8 border border-ice-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-navy-900 text-white flex items-center justify-center font-bold text-lg mb-6 shadow-md">
+                            <i class="fa-solid fa-moon"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-royal-600">Evening Shift</span>
+                        <h3 class="text-xl font-bold text-navy-900 mt-1">Working Professionals Batch</h3>
+                        <p class="text-slate-600 text-sm mt-3">Mon to Fri (6:00 PM - 9:00 PM)</p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-200 flex items-center justify-between">
+                        <span class="text-xs font-bold text-emerald-600 bg-white px-3 py-1 rounded-full shadow-xs">Enrollment Open</span>
+                        <button onclick="openBookingModal('enroll')" class="text-royal-600 font-bold text-sm hover:underline">Select Batch <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                    </div>
+                </div>
+
+                <div class="bg-ice-100 rounded-3xl p-8 border border-ice-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-royal-500 text-white flex items-center justify-center font-bold text-lg mb-6 shadow-md shadow-royal-500/30">
+                            <i class="fa-solid fa-calendar-week"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-royal-600">Weekend Special</span>
+                        <h3 class="text-xl font-bold text-navy-900 mt-1">Saturday & Sunday Batch</h3>
+                        <p class="text-slate-600 text-sm mt-3">Sat & Sun (9:00 AM - 5:00 PM)</p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-200 flex items-center justify-between">
+                        <span class="text-xs font-bold text-amber-600 bg-white px-3 py-1 rounded-full shadow-xs">Few Slots Left</span>
+                        <button onclick="openBookingModal('enroll')" class="text-royal-600 font-bold text-sm hover:underline">Select Batch <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="bg-navy-900 text-white pt-20 pb-12 border-t border-navy-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/10">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="image_4b99b9.jpg" alt="BELART Logo" class="w-10 h-10 rounded-full bg-white p-0.5">
+                        <span class="text-xl font-extrabold tracking-tight">BELART</span>
+                    </div>
+                    <p class="text-slate-400 text-sm">
+                        BELART Training and Assessment Inc. is a premier TESDA-accredited training and assessment center committed to career advancement and vocational skills certification.
+                    </p>
+                    <div class="text-xs text-slate-400 bg-white/5 p-3 rounded-xl border border-white/10">
+                        <span class="font-bold text-white block mb-1">Accreditation Info:</span>
+                        EST. 2025 | TESDA Accredited Center
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#catalog" class="hover:text-white transition-colors">Courses Catalog</a></li>
+                        <li><a href="#assessment" class="hover:text-white transition-colors">Assessment Center</a></li>
+                        <li><a href="#schedule" class="hover:text-white transition-colors">Batch Schedules</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold">Featured Courses</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#catalog" class="hover:text-white transition-colors">Airport Ground Support Equipment</a></li>
+                        <li><a href="#catalog" class="hover:text-white transition-colors">Aircraft Cleaning & Disinfection</a></li>
+                        <li><a href="#catalog" class="hover:text-white transition-colors">Aircraft Cabin Services</a></li>
+                        <li><a href="#catalog" class="hover:text-white transition-colors">Early Childhood Care & Development NC lll</a></li>
+                        <li><a href="#catalog" class="hover:text-white transition-colors">Heavy Equipment Forklift NC ll</a></li>
+                        <li><a href="#catalog" class="hover:text-white transition-colors">Scaffolding NC ll</a></li>
+                        <li><a href="#catalog" class="hover:text-white transition-colors">Virtual Assistant level lll</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold">Contact Us</h4>
+                    <div class="space-y-3 text-sm text-slate-400">
+                        <p class="flex items-start gap-3"><i class="fa-solid fa-location-dot text-royal-400 mt-1"></i> <strong>Las Piñas Branch:</strong> Lot 6, Blk. 7, Chapel Road, Gatchalian Subdivision, Las Piñas City</p>
+                        <p class="flex items-start gap-3"><i class="fa-solid fa-location-dot text-royal-400 mt-1"></i> <strong>Pasig Branch:</strong> 682 Shaw Boulevard, Kapitolyo, Pasig City</p>
+                        <p class="flex items-center gap-3"><i class="fa-solid fa-phone text-royal-400"></i> (+63) 917 321 5773 / (02) 8970-9080</p>
+                        <p class="flex items-center gap-3"><i class="fa-solid fa-envelope text-royal-400"></i> belartcorp@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>&copy; 2026 BELART Training and Assessment Inc. All rights reserved.</p>
+                <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Course Details Modal -->
+    <div id="courseModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative transform transition-all">
+            <button onclick="closeCourseModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 flex items-center justify-center font-bold">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modalContent" class="space-y-6"></div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative transform transition-all">
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 flex items-center justify-center font-bold">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="space-y-6">
+                <div>
+                    <span id="modalBadge" class="px-3 py-1 bg-royal-50 text-royal-600 text-xs font-bold rounded-lg uppercase tracking-wider">Fast Registration</span>
+                    <h3 id="bookingModalTitle" class="text-2xl font-extrabold text-navy-900 mt-2">Secure Your Slot</h3>
+                    <p class="text-slate-500 text-sm mt-1">Fill out the reservation form and our admissions team will contact you shortly.</p>
+                </div>
+
+                <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Full Name</label>
+                        <input type="text" required placeholder="Juan Dela Cruz" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal-500 text-sm">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Email Address</label>
+                            <input type="email" required placeholder="juan@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal-500 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Contact Number</label>
+                            <input type="tel" required placeholder="0912 345 6789" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal-500 text-sm">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Select Program / Qualification</label>
+                        <select id="programSelect" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal-500 text-sm">
+                            <option>Airport Ground Support Equipment</option>
+                            <option>Aircraft Cleaning & Disinfection</option>
+                            <option>Aircraft Cabin Services</option>
+                            <option>Early Childhood Care & Development NC lll</option>
+                            <option>Heavy Equipment Forklift NC ll</option>
+                            <option>Scaffolding NC ll</option>
+                            <option>Virtual Assistant level  lll</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Preferred Schedule / Shift</label>
+                        <select class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal-500 text-sm">
+                            <option>Weekday Morning Batch (8AM - 12NN)</option>
+                            <option>Weekday Evening Batch (6PM - 9PM)</option>
+                            <option>Weekend Batch (Sat & Sun)</option>
+                            <option>Assessment Examination Date</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full py-3.5 rounded-xl bg-royal-600 text-white font-bold hover:bg-royal-500 transition-all shadow-lg shadow-royal-600/25">
+                        Submit Reservation
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-navy-900 text-white px-6 py-4 rounded-2xl shadow-2xl border border-white/10 flex items-center gap-3 animate-bounce">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-xl"></i>
+        <div>
+            <h4 class="font-bold text-sm">Success!</h4>
+            <p id="toastMsg" class="text-xs text-slate-300">Your reservation request has been received.</p>
+        </div>
+    </div>
+
+    <!-- JS Logic -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function switchView(view) {
+            const coursesView = document.getElementById('coursesView');
+            const assessmentsView = document.getElementById('assessmentsView');
+            const tabCoursesBtn = document.getElementById('tabCoursesBtn');
+            const tabAssessBtn = document.getElementById('tabAssessBtn');
+
+            if (view === 'courses') {
+                coursesView.classList.remove('hidden');
+                assessmentsView.classList.add('hidden');
+                tabCoursesBtn.className = "px-6 py-2.5 rounded-xl font-bold text-sm bg-white text-royal-600 shadow-sm transition-all";
+                tabAssessBtn.className = "px-6 py-2.5 rounded-xl font-bold text-sm text-slate-600 hover:text-royal-600 transition-all";
+            } else {
+                coursesView.classList.add('hidden');
+                assessmentsView.classList.remove('hidden');
+                tabAssessBtn.className = "px-6 py-2.5 rounded-xl font-bold text-sm bg-white text-royal-600 shadow-sm transition-all";
+                tabCoursesBtn.className = "px-6 py-2.5 rounded-xl font-bold text-sm text-slate-600 hover:text-royal-600 transition-all";
+            }
+        }
+
+        let activeSector = 'All';
+        function setSectorFilter(sector) {
+            activeSector = sector;
+            const buttons = document.querySelectorAll('.sector-btn');
+            buttons.forEach(btn => {
+                if (btn.innerText.includes(sector) || (sector === 'All' && btn.innerText.includes('All'))) {
+                    btn.className = "sector-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-royal-600 text-white shadow-sm transition-all";
+                } else {
+                    btn.className = "sector-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-ice-200 hover:text-royal-600 transition-all";
+                }
+            });
+            filterCatalog();
+        }
+
+        function filterCatalog() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.course-card');
+
+            cards.forEach(card => {
+                const title = card.getAttribute('data-title').toLowerCase();
+                const sector = card.getAttribute('data-sector');
+                const matchesSector = (activeSector === 'All' || sector === activeSector);
+                const matchesQuery = title.includes(query);
+
+                if (matchesSector && matchesQuery) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function openCourseModal(title, sector, duration, level, description) {
+            const modal = document.getElementById('courseModal');
+            const content = document.getElementById('modalContent');
+
+            content.innerHTML = `
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <span class="px-3 py-1 bg-ice-100 text-royal-600 text-xs font-bold rounded-lg">${sector} Sector</span>
+                        <span class="px-3 py-1 bg-navy-900 text-white text-xs font-bold rounded-lg">${level}</span>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-navy-900">${title}</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">${description}</p>
+                    <div class="bg-ice-100 p-4 rounded-2xl space-y-2 text-sm text-slate-700">
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium"><i class="fa-regular fa-clock text-royal-600 mr-2"></i> Duration:</span>
+                            <span class="font-bold">${duration}</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium"><i class="fa-solid fa-certificate text-royal-600 mr-2"></i> Certification:</span>
+                            <span class="font-bold">BELART / TESDA Standard</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium"><i class="fa-solid fa-user-group text-royal-600 mr-2"></i> Status:</span>
+                            <span class="font-bold text-emerald-600">Enrollment Open</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex gap-3">
+                        <button onclick="closeCourseModal(); openBookingModal('enroll', '${title}');" class="flex-1 py-3.5 rounded-xl bg-royal-600 text-white font-bold hover:bg-royal-500 shadow-md text-sm">
+                            Proceed to Enrollment
+                        </button>
+                    </div>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+        }
+
+        function closeCourseModal() {
+            document.getElementById('courseModal').classList.add('hidden');
+        }
+
+        function openBookingModal(type, courseTitle = '') {
+            const modal = document.getElementById('bookingModal');
+            const badge = document.getElementById('modalBadge');
+            const title = document.getElementById('bookingModalTitle');
+            const select = document.getElementById('programSelect');
+
+            if (type === 'assessment') {
+                badge.innerText = "Assessment Booking";
+                title.innerText = "Book Certification Examination";
+            } else {
+                badge.innerText = "Fast Registration";
+                title.innerText = "Enroll in Course";
+            }
+
+            if (courseTitle) {
+                for (let i = 0; i < select.options.length; i++) {
+                    if (select.options[i].text.toLowerCase().includes(courseTitle.toLowerCase())) {
+                        select.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            closeBookingModal();
+            closeCourseModal();
+
+            const toast = document.getElementById('toast');
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+
+        window.onclick = function(event) {
+            const courseModal = document.getElementById('courseModal');
+            const bookingModal = document.getElementById('bookingModal');
+            if (event.target === courseModal) closeCourseModal();
+            if (event.target === bookingModal) closeBookingModal();
+        }
+    </script>
+</body>
+</html>
