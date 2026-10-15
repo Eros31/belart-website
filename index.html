@@ -6,6 +6,13 @@
     <title>BELART - TESDA Accredited Assessment & Training Center</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init('6jntY5ImYe0jcs_Nc'); // Replace with your EmailJS Public Key
+       })();
+    </script>
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts: Inter -->
@@ -816,7 +823,7 @@
                     <p class="text-slate-500 text-sm mt-1">Fill out the reservation form and our admissions team will contact you shortly.</p>
                 </div>
 
-                <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <form id="bookingForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Full Name</label>
                         <input type="text" required placeholder="Juan Dela Cruz" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-royal-500 text-sm">
@@ -967,6 +974,49 @@
         function closeCourseModal() {
             document.getElementById('courseModal').classList.add('hidden');
         }
+        //EMAIL
+        function handleFormSubmit(e) {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.innerText = "Sending...";
+        submitBtn.disabled = true;
+    
+        // Gather form parameters
+        const templateParams = {
+            to_email: 'belartcorp@gmail.com',
+            user_name: document.getElementById('userName').value,
+            user_email: document.getElementById('userEmail').value,
+            user_phone: document.getElementById('userPhone').value,
+            program: document.getElementById('programSelect').value,
+            schedule: document.getElementById('userSchedule').value
+        };
+    
+        // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your EmailJS dashboard credentials
+        emailjs.send('service_euoy3e6', 'template_6g8wlj8', templateParams)
+            .then(function(response) {
+                submitBtn.innerText = "Submit Reservation";
+                submitBtn.disabled = false;
+                closeBookingModal();
+                closeCourseModal();
+    
+                // Clear form
+                document.getElementById('bookingForm').reset();
+    
+                // Show success notification
+                const toast = document.getElementById('toast');
+                document.getElementById('toastMsg').innerText = "Reservation sent successfully! We'll email you back.";
+                toast.classList.remove('hidden');
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 4000);
+            }, function(error) {
+                submitBtn.innerText = "Submit Reservation";
+                submitBtn.disabled = false;
+                alert('Failed to send reservation. Please try calling us directly.');
+                console.error('FAILED...', error);
+            });
+    }
 
         function openBookingModal(type, courseTitle = '') {
             const modal = document.getElementById('bookingModal');
